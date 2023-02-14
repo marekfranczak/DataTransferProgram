@@ -13,16 +13,37 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * Class responsible for controlling application graph layout
+ * @author Marek Frańczak
+ * @since 1.0.0
+ */
 public class Controller {
 
+    /**
+     * Field that pass FXML object BorderPane where application state are display and shares tools to control application.
+     */
     @FXML
     private BorderPane mainWindow;
+
+    /**
+     * Field that pass FXML object TextArea which display application status.
+     */
     @FXML
     private TextArea msgArea;
 
+    /**
+     * Instance of class that support sending files.
+     */
     private Server server;
+    /**
+     * Instance of class that support receiving files.
+     */
     private Client client;
 
+    /**
+     * Method is link to particular button and enables send file.
+     */
     @FXML
     public void sendFile(){
         FileChooser fileChooser = new FileChooser();
@@ -42,6 +63,9 @@ public class Controller {
         msgArea.setText(Data.getInstance().toString());
     }
 
+    /**
+     * Method is link to particular button and enables save file.
+     */
     @FXML
     public void saveFile(){
         FileChooser fileChooser = new FileChooser();
@@ -61,11 +85,17 @@ public class Controller {
         msgArea.setText(Data.getInstance().toString());
     }
 
+    /**
+     * Method that close application.
+     */
     @FXML
     public void exit(){
         System.exit(0);
     }
 
+    /**
+     * Method is link to particular button and enables display instruction 'How to send and receive file'.
+     */
     @FXML
     public void helpDialog(){
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
@@ -76,6 +106,9 @@ public class Controller {
         dialog.show();
     }
 
+    /**
+     * Method is link to particular button and enables display information about program.
+     */
     @FXML
     public void aboutDialog(){
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
@@ -87,6 +120,9 @@ public class Controller {
         dialog.show();
     }
 
+    /**
+     * Method is link to particular button and enables set IP and socket number for target device.
+     */
     @FXML
     public void setIpAndSockMenu(){
         Dialog<ButtonType> dialog = new Dialog<>();
